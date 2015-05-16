@@ -35,9 +35,14 @@
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Back.cs" />
+    <Compile Include="Exit.cs" />
     <Compile Include="Game1.cs" />
+    <Compile Include="MainMenu.cs" />
+    <Compile Include="Play.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Ranking.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MonoGame.Framework">
@@ -47,11 +52,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Background main.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Buttons\EXIT.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Buttons\RANKING.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Buttons\START.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Icon.ico" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Content\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
