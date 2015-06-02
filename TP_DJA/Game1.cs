@@ -149,7 +149,7 @@ namespace TP_DJA
                 //Currentlevel = 1;
                 spaceship.Update();
                 bullet.Update(gameTime);
-                enemie.Update(gameTime, bullet);
+                enemie.Update(gameTime, bullet, spaceship);
                 if (enemie.inimigosMortos == 60)
                 {
                     Winner = true;
@@ -187,6 +187,7 @@ namespace TP_DJA
                             bullet.falhados = 3;
                             enemie = new Enemies(Content, graphics);
                             enemie.LoadContent("Invaders/invader_2");
+                            enemie.speed += 50;
                             Currentlevel = 2;
                         }
                     }
@@ -217,8 +218,10 @@ namespace TP_DJA
                             Winner = false;
                             GameOver = false;
                             bullet.falhados = 3;
+                            
                             enemie = new Enemies(Content, graphics);
                             enemie.LoadContent("Invaders/invader_3");
+                            enemie.speed += 100;
                             Currentlevel = 3;
                         }
                     }
@@ -370,13 +373,13 @@ namespace TP_DJA
                     {
                         spriteBatch.Draw(Content.Load<Texture2D>("Background Marte"), new Rectangle(0, 0, ScreenWidth, ScreenHeight), Color.White);
                         spriteBatch.DrawString(font, "Press R to restart or ESC to exit.", new Vector2(ScreenWidth / 2 - 230, ScreenHeight / 2 + 80), Color.White);
-                        spriteBatch.DrawString(font, "GAME OVER!!!!", new Vector2(ScreenWidth / 2 - 50, ScreenHeight / 2), Color.Green);
+                        spriteBatch.DrawString(font, "GAME OVER!!!!", new Vector2(ScreenWidth / 2 - 50, ScreenHeight / 2), Color.Red);
                         spriteBatch.DrawString(font, "Your Score: " + enemie.GamePoints + ".", new Vector2(ScreenWidth / 2 - 70, ScreenHeight / 2 + 35), Color.White);
                     }
                     else if (Currentlevel == 2)
                     {
                         spriteBatch.Draw(Content.Load<Texture2D>("Background Jupiter"), new Rectangle(0, 0, ScreenWidth, ScreenHeight), Color.White);
-                        spriteBatch.DrawString(font, "GAME OVER!!!!", new Vector2(ScreenWidth / 2 - 50, ScreenHeight / 2), Color.Green);
+                        spriteBatch.DrawString(font, "GAME OVER!!!!", new Vector2(ScreenWidth / 2 - 50, ScreenHeight / 2), Color.Red);
                         spriteBatch.DrawString(font, "Your Score: " + enemie.GamePoints + ".", new Vector2(ScreenWidth / 2 - 70, ScreenHeight / 2 + 35), Color.White);
                         spriteBatch.DrawString(font, "Press R to restart or ESC to exit.", new Vector2(ScreenWidth / 2 - 230, ScreenHeight / 2 + 80), Color.White);
 
@@ -384,7 +387,7 @@ namespace TP_DJA
                     else if (Currentlevel == 3)
                     {
                         spriteBatch.Draw(Content.Load<Texture2D>("Background Neptuno"), new Rectangle(0, 0, ScreenWidth, ScreenHeight), Color.White);
-                        spriteBatch.DrawString(font, "GAME OVER!!!!", new Vector2(ScreenWidth / 2 - 50, ScreenHeight / 2), Color.Green);
+                        spriteBatch.DrawString(font, "GAME OVER!!!!", new Vector2(ScreenWidth / 2 - 50, ScreenHeight / 2), Color.Red);
                         spriteBatch.DrawString(font, "Your Score: " + enemie.GamePoints + ".", new Vector2(ScreenWidth / 2 - 70, ScreenHeight / 2 + 35), Color.White);
                         spriteBatch.DrawString(font, "Press R to restart or ESC to exit.", new Vector2(ScreenWidth / 2 - 230, ScreenHeight / 2 + 80), Color.White);
                     }

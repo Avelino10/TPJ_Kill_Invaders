@@ -12,8 +12,9 @@ namespace TP_DJA
     public class Enemies : Sprite
     {
         const int noInvadersX = 15;
+        public int speed;
         const int noInvadersY = 4;
-        Enemy[,] enemies;
+        Enemy[,] enemies; 
         bool[,] enemiesDead;
         SoundEffect Hit;
         int direction = 1;
@@ -97,9 +98,9 @@ namespace TP_DJA
                 }
             }
         }
-        public void Update(GameTime gameTime, Bullet bullet)
+        public void Update(GameTime gameTime, Bullet bullet, Spaceship ship)
         {
-            int speed = 100;
+            speed = 100;
             bool colide = false;
             for (int i = 0; i < noInvadersX; i++)
             {
@@ -141,6 +142,11 @@ namespace TP_DJA
                         inimigosMortos++;
                         GamePoints += 5;
                      }
+
+                    if(enemies[i,j].ColideComShip(ship))
+                    {
+                        bullet.falhados = 0;
+                    }
                 }
             }
         }

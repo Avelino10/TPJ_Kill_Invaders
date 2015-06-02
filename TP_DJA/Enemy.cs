@@ -44,6 +44,10 @@ namespace TP_DJA
         {
             return this.bounds.Intersects(bala.Bounds);
         }
+        public bool ColideComShip(Spaceship ship)
+        {
+            return this.bounds.Intersects(ship.Bounds);
+        }
         public void Draw(SpriteBatch spriteBatch)
         {
                 spriteBatch.Draw(Texture, bounds, Color.White);
